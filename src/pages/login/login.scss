@@ -1,0 +1,42 @@
+.login-content{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+.login{
+	display:flex;
+	flex-direction: column;
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+	transition: all 1s; 
+}
+.login.hidden{
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(20px);
+}
+.login-form{
+	transform: translateY(0) !important;
+}
+.login-form.hidden{
+	transform: translateY(-20px) !important;
+}
+.header{
+	position:absolute;
+	top:10%;
+	left:50%;
+	transform: translateX(-50%);
+	color:white;
+}
+.social{
+	position:absolute;
+	bottom:10%;
+	left:50%;
+	transform: translateX(-50%);
+}
+button{
+	width: 250px;
+}

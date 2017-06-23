@@ -1,0 +1,25 @@
+<ion-content padding style="background-color:orange">
+	<div class="login-content">
+	  <h1 class="header">Maxang</h1>
+	  <div class="login login-form" [ngClass]="{'hidden': !isSelected}">
+	 	<form #form="ngForm" (ngSubmit)="loginEmail(form.value)">
+	      <ion-item>
+	        <ion-label>Email</ion-label>
+	        <ion-input type="text" name="email" ngModel></ion-input>
+	      </ion-item>
+	      <ion-item>
+	        <ion-label>Password</ion-label>
+	        <ion-input type="text" name="password" ngModel></ion-input>
+	      </ion-item>
+	      <button ion-button type="submit" block>Login</button>
+	    </form>
+	  </div>
+	  <div class="login" [ngClass]="{'hidden': isSelected}">
+	  	<button ion-button outline color="light" (click)="signInWithEmail()">Login with email</button>
+	  </div>
+	  <div class="social">
+		<button ion-button (click)="signInWithFacebook()">Login with facebook</button>  
+		<button ion-button color="danger" (click)="signInWithGoogle()">Login with google</button>
+	  </div>
+	</div>
+</ion-content>
