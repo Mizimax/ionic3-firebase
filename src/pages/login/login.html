@@ -1,25 +1,49 @@
-<ion-content padding style="background-color:orange">
+<ion-content padding class="main-bg">
 	<div class="login-content">
-	  <h1 class="header">Maxang</h1>
-	  <div class="login login-form" [ngClass]="{'hidden': !isSelected}">
-	 	<form #form="ngForm" (ngSubmit)="loginEmail(form.value)">
-	      <ion-item>
-	        <ion-label>Email</ion-label>
-	        <ion-input type="text" name="email" ngModel></ion-input>
-	      </ion-item>
-	      <ion-item>
-	        <ion-label>Password</ion-label>
-	        <ion-input type="text" name="password" ngModel></ion-input>
-	      </ion-item>
-	      <button ion-button type="submit" block>Login</button>
+	  <h1 class="logo">Maxang</h1>
+	  <div class="login login-form" [ngClass]="{'hidden': !loginSelected}">
+	 		<form #login="ngForm" (ngSubmit)="signInWithEmail(login.value)">
+				<ion-list>
+					<ion-item>
+						<ion-input placeholder="Email address" type="email" name="email" ngModel></ion-input>
+					</ion-item>
+					<ion-item>
+						<ion-input placeholder="Password" type="password" name="password" ngModel></ion-input>
+					</ion-item>
+				</ion-list>
+	      <button ion-button color="light" type="submit" block>Login</button>
 	    </form>
+			<br>
+			<button ion-button color="light" (click)="regisSelected = true; loginSelected = false">Register for free</button>
 	  </div>
-	  <div class="login" [ngClass]="{'hidden': isSelected}">
-	  	<button ion-button outline color="light" (click)="signInWithEmail()">Login with email</button>
+		<div class="login login-form" [ngClass]="{'hidden': !regisSelected}">
+	 		<form #regis="ngForm" (ngSubmit)="signUp(regis.value)">
+				<ion-list>
+					<ion-item>
+						<ion-input placeholder="Email address" type="email" name="email" ngModel></ion-input>
+					</ion-item>
+					<ion-item>
+						<ion-input placeholder="Name" type="text" name="name" ngModel></ion-input>
+					</ion-item>
+					<ion-item>
+						<ion-input placeholder="Password" type="password" name="password" ngModel></ion-input>
+					</ion-item>
+					<ion-item>
+						<ion-input placeholder="Password" type="password" name="password2" ngModel></ion-input>
+					</ion-item>
+				</ion-list>
+	      <button ion-button color="light" type="submit" block>Sign Up</button>
+	    </form>
+			<br>
+			<button ion-button color="light" (click)="regisSelected = false; loginSelected = true">Login</button>
+	  </div>
+	  <div class="login" [ngClass]="{'hidden': regisSelected || loginSelected}">
+	  	<button ion-button color="light" (click)="loginSelected = true">Login with email</button>
+			<button ion-button color="light" (click)="regisSelected = true">Register for free</button>
 	  </div>
 	  <div class="social">
-		<button ion-button (click)="signInWithFacebook()">Login with facebook</button>  
-		<button ion-button color="danger" (click)="signInWithGoogle()">Login with google</button>
+			<button ion-button (click)="signInWithFacebook()">Login with facebook</button>  
+			<button ion-button color="danger" (click)="signInWithGoogle()">Login with google</button>
 	  </div>
 	</div>
 </ion-content>

@@ -1,3 +1,6 @@
+.main-bg{
+	background: url('../assets/imgs/bg.jpg') 0 30%;
+}
 .login-content{
 	display:flex;
 	flex-direction: column;
@@ -6,37 +9,47 @@
 	height: 100%;
 }
 .login{
-	display:flex;
-	flex-direction: column;
+	position: absolute;
+	top:50%;
+	left:50%;
+	width: 250px;
+	transform: translate(-50%,-50%);
 	opacity: 1;
 	visibility: visible;
-	transform: translateY(0);
-	transition: all 1s; 
+	transition: all 0.4s; 
 }
 .login.hidden{
 	opacity: 0;
 	visibility: hidden;
-	transform: translateY(20px);
+	transform: translate(-50%,50%);
 }
 .login-form{
-	transform: translateY(0) !important;
+	transform: translate(-50%,-55%) !important;
 }
 .login-form.hidden{
-	transform: translateY(-20px) !important;
+	transform: translate(-50%,-70%) !important;
 }
-.header{
+.logo{
 	position:absolute;
-	top:10%;
+	top:15%;
 	left:50%;
 	transform: translateX(-50%);
 	color:white;
 }
 .social{
+	display: flex;
+	flex-direction: column;
 	position:absolute;
+	text-align: center;
 	bottom:10%;
 	left:50%;
 	transform: translateX(-50%);
 }
 button{
 	width: 250px;
+}
+ion-item{
+	background: none !important;
+	padding-left:0 !important;
+	color: white !important;
 }

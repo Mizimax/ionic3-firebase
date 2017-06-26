@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { App } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+
+import { AngularFireAuth } from 'angularfire2/auth';
+
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-home',
@@ -7,8 +12,13 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
-
+  constructor(private afAuth: AngularFireAuth, private appCtrl: App, private storage: Storage) {
   }
-
+  signOut(){
+    this.afAuth.auth.signOut().then(()=>{
+      this.storage.set('isLoggedin',false).then(()=>{
+        this.appCtrl.getRootNav().setRoot(LoginPage)
+      })
+    })
+  }
 }
