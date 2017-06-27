@@ -4,8 +4,6 @@ import { Storage } from '@ionic/storage';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 
-import { LoginPage } from '../login/login';
-
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -16,9 +14,7 @@ export class HomePage {
   }
   signOut(){
     this.afAuth.auth.signOut().then(()=>{
-      this.storage.set('isLoggedin',false).then(()=>{
-        this.appCtrl.getRootNav().setRoot(LoginPage)
-      })
+      this.storage.set('isLoggedin',false)
     })
   }
 }

@@ -6,5 +6,15 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let chat of chats">
+    <ion-thumbnail item-start>
+      <img src="img/thumbnail-totoro.png">
+    </ion-thumbnail>
+    <p class="head-1">{{ chat }}</p>
+    <p>Hayao Miyazaki • 1988</p>
+    <button ion-button clear item-end class="chat-but">Chat</button>
+    </ion-item>
+  </ion-list>
 </ion-content>
