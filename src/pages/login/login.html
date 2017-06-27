@@ -11,12 +11,12 @@
 						<ion-input placeholder="Password" type="password" name="password" ngModel></ion-input>
 					</ion-item>
 				</ion-list>
-	      <button ion-button color="light" type="submit" block>Login</button>
+	      <button ion-button color="warning" type="submit" block>Login</button>
 	    </form>
 			<br>
 			<button ion-button color="light" (click)="regisSelected = true; loginSelected = false">Register for free</button>
 	  </div>
-		<div class="login login-form" [ngClass]="{'hidden': !regisSelected}">
+		<div class="login regis-form" [ngClass]="{'hidden': !regisSelected}">
 	 		<form #regis="ngForm" (ngSubmit)="signUp(regis.value)">
 				<ion-list>
 					<ion-item>
@@ -32,16 +32,16 @@
 						<ion-input placeholder="Password" type="password" name="password2" ngModel></ion-input>
 					</ion-item>
 				</ion-list>
-	      <button ion-button color="light" type="submit" block>Sign Up</button>
+	      <button ion-button color="warning" type="submit" block>Sign Up</button>
 	    </form>
 			<br>
 			<button ion-button color="light" (click)="regisSelected = false; loginSelected = true">Login</button>
 	  </div>
 	  <div class="login" [ngClass]="{'hidden': regisSelected || loginSelected}">
 	  	<button ion-button color="light" (click)="loginSelected = true">Login with email</button>
-			<button ion-button color="light" (click)="regisSelected = true">Register for free</button>
+			<button ion-button color="warning" (click)="regisSelected = true">Register for free</button>
 	  </div>
-	  <div class="social">
+	  <div class="social" *ngIf="!regisSelected">
 			<button ion-button (click)="signInWithFacebook()">Login with facebook</button>  
 			<button ion-button color="danger" (click)="signInWithGoogle()">Login with google</button>
 	  </div>

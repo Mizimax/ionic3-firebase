@@ -15,6 +15,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
+import { FriendPage } from '../pages/friend/friend';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -34,7 +35,8 @@ export const firebaseConfig = {
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    FriendPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ export const firebaseConfig = {
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    FriendPage
   ],
   providers: [
     StatusBar,
